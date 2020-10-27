@@ -6,11 +6,13 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 17:24:40 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/26 17:38:54 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/27 14:46:37 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memchr(const void *s, int c, unsigned int n)
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char		c_cpy;
 	const unsigned char	*s_cpy;
@@ -24,5 +26,5 @@ void	*ft_memchr(const void *s, int c, unsigned int n)
 		s_cpy++;
 		n--;
 	}
-	return (0);
+	return (NULL);
 }

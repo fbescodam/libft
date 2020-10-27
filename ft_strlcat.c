@@ -6,19 +6,19 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 14:36:46 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/26 19:44:39 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/27 14:31:14 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size)
-{
-	unsigned int	src_len;
-	unsigned int	dest_len;
-	unsigned int	i;
+#include "libft.h"
 
-	src_len = 0;
-	while (src[src_len] != '\0')
-		src_len++;
+size_t		ft_strlcat(char *dest, const char *src, size_t size)
+{
+	size_t		src_len;
+	size_t		dest_len;
+	size_t		i;
+
+	src_len = ft_strlen(src);
 	i = 0;
 	while (dest[i] && i < size)
 		i++;

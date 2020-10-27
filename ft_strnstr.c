@@ -6,11 +6,13 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 20:10:12 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/26 21:28:23 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/27 14:49:04 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(const char *str, const char *sub, unsigned int len)
+#include "libft.h"
+
+char	*ft_strnstr(const char *str, const char *sub, size_t len)
 {
 	unsigned int	found_len;
 	unsigned int	to_find_len;
@@ -35,5 +37,5 @@ char	*ft_strnstr(const char *str, const char *sub, unsigned int len)
 	}
 	if (found_len == to_find_len)
 		return ((char *)&str[i - found_len]);
-	return (0);
+	return (NULL);
 }

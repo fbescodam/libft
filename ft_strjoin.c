@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memccpy.c                                       :+:    :+:            */
+/*   ft_strjoin.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 16:31:33 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/27 14:46:26 by fbes          ########   odam.nl         */
+/*   Created: 2020/10/27 15:00:32 by fbes          #+#    #+#                 */
+/*   Updated: 2020/10/27 15:08:59 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char		*dest_cpy;
-	const char	*src_cpy;
+	char	*dest;
+	char	*ptr;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	dest_cpy = dest;
-	src_cpy = src;
-	while (n > 0)
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	dest = (char *)malloc(s1_len + s2_len + 1);
+	if (dest)
 	{
-		*dest_cpy = *src_cpy;
-		dest_cpy++;
-		if (*src_cpy == (char)c)
-			return ((void *)dest_cpy);
-		src_cpy++;
-		n--;
+		ptr = dest;
+		ft_memcpy(ptr, s1, s1_len);
+		ptr += s1_len;
+		ft_memcpy(ptr, s2, s2_len);
+		ptr += s2_len;
+		*ptr = '\0';
 	}
-	return (NULL);
+	return (dest);
 }

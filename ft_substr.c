@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memccpy.c                                       :+:    :+:            */
+/*   ft_substr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/26 16:31:33 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/27 14:46:26 by fbes          ########   odam.nl         */
+/*   Created: 2020/10/27 14:13:01 by fbes          #+#    #+#                 */
+/*   Updated: 2020/10/27 14:57:33 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	char		*dest_cpy;
-	const char	*src_cpy;
+	char	*dest;
+	size_t	i;
+	size_t	final_len;
 
-	dest_cpy = dest;
-	src_cpy = src;
-	while (n > 0)
+	final_len = ft_strlen(s) - (size_t)start;
+	if (final_len > len)
+		final_len = len;
+	dest = (char *)malloc(final_len + 1);
+	if (dest)
 	{
-		*dest_cpy = *src_cpy;
-		dest_cpy++;
-		if (*src_cpy == (char)c)
-			return ((void *)dest_cpy);
-		src_cpy++;
-		n--;
+		i = 0;
+		if (start < ft_strlen(s))
+		{
+			while (i < len)
+			{
+				dest[i] = s[(size_t)start + i];
+				i++;
+			}
+		}
+		dest[i] = '\0';
 	}
-	return (NULL);
+	return (dest);
 }

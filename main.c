@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:58:23 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/26 21:31:39 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/27 16:59:15 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,8 +156,8 @@ int		main(void)
 	strcpy(str, "This is a string to test the strlen function");
 	puts(str);
 
-	printf("strlen: %d\n", strlen(str));
-	printf("ft_strlen: %d\n", ft_strlen(str));
+	printf("strlen: %ld\n", strlen(str));
+	printf("ft_strlen: %ld\n", ft_strlen(str));
 
 	return (0);
 }
@@ -175,8 +175,8 @@ int		main(void)
 	strcpy(dest, "This string should get overwritten by the previous one");
 	puts(str);
 	puts(dest);
-	// printf("strlcpy returned: %d\n", strlcpy(dest, str, 13));
-	printf("ft_strlcpy returned: %d\n", ft_strlcpy(dest, str, 13));
+	// printf("strlcpy returned: %ld\n", strlcpy(dest, str, 13));
+	printf("ft_strlcpy returned: %ld\n", ft_strlcpy(dest, str, 13));
 	puts(str);
 	puts(dest);
 
@@ -196,8 +196,8 @@ int		main(void)
 	strcpy(dest, "abcdef");
 	puts(str);
 	puts(dest);
-	// printf("strlcpy returned: %d\n", strlcat(dest, str, 100));
-	printf("ft_strlcpy returned: %d\n", ft_strlcat(dest, str, 100));
+	// printf("strlcpy returned: %ld\n", strlcat(dest, str, 100));
+	printf("ft_strlcpy returned: %ld\n", ft_strlcat(dest, str, 100));
 	puts(dest);
 
 	return (0);
@@ -229,8 +229,8 @@ int		main(void)
 	strcpy(str, "This is a string to test the strrchr function");
 	puts(str);
 
-	printf("strrchr: %p\n", strrchr(str, 'q'));
-	printf("ft_strrchr: %p\n", ft_strrchr(str, 'q'));
+	printf("strrchr: %p\n", strrchr(str, '\0'));
+	printf("ft_strrchr: %p\n", ft_strrchr(str, '\0'));
 
 	return (0);
 }
@@ -315,3 +315,174 @@ int		main(void)
 	return (0);
 }
 */
+
+// ft_strdup
+/*
+int		main(void)
+{
+	char test[100];
+	char *dest;
+
+	strcpy(test, "This is a string to test the strdup function");
+	puts(test);
+
+	dest = ft_strdup(test);
+	if (dest)
+	{
+		puts(dest);
+		free(dest);
+	}
+	else
+		printf("malloc failed!\n");
+	return (0);
+}
+*/
+
+// ft_substr
+/*
+int		main(void)
+{
+	char test[100];
+	char *dest;
+
+	strcpy(test, "This is a string to test the substr function");
+	puts(test);
+
+	dest = ft_substr(test, 10, 12);
+	if (dest)
+	{
+		puts(dest);
+		free(dest);
+	}
+	else
+		printf("malloc failed!\n");
+	return (0);
+}
+*/
+
+// ft_strjoin
+/*
+int		main(void)
+{
+	char str1[64];
+	char str2[64];
+	char *dest;
+
+	strcpy(str1, "This string should...");
+	strcpy(str2, "...now be one!");
+	dest = ft_strjoin(str1, str2);
+	if (dest)
+	{
+		puts(dest);
+		free(dest);
+	}
+	else
+		printf("malloc failed!\n");
+	return (0);
+}
+*/
+
+// ft_strtrim
+/*
+int		main(void)
+{
+	char str[100];
+	char *dest;
+
+	strcpy(str, "   qqw   It works!   qan   ");
+	dest = ft_strtrim(str, " nqa!sw");
+	if (dest)
+	{
+		puts(dest);
+		printf("ft_strlen(dest): %ld\n", ft_strlen(dest));
+		free(dest);
+	}
+	else
+		printf("malloc failed!\n");
+	return (0);
+}
+*/
+
+// ft_strtrimstr
+/*
+int		main(void)
+{
+	char str[100];
+	char *dest;
+
+	strcpy(str, "remove It works!remve");
+	dest = ft_strtrimstr(str, "remove It works!remve");
+	if (dest)
+	{
+		puts(dest);
+		printf("ft_strlen(dest): %ld\n", ft_strlen(dest));
+		free(dest);
+	}
+	else
+		printf("malloc failed!\n");
+	return (0);
+}
+*/
+
+// ft_splitset
+/*
+int		main(void)
+{
+	char	str[124];
+	char	**dest;
+	size_t	i;
+
+	strcpy(str, "Split this string at every space and s character");
+	dest = ft_splitset(str, " s");
+	i = 0;
+	while (dest[i])
+	{
+		puts(dest[i]);
+		free(dest[i]);
+		i++;
+	}
+	free(dest);
+	return (0);
+}
+*/
+
+// ft_split
+/*
+int		main(void)
+{
+	char	str[124];
+	char	**dest;
+	size_t	i;
+
+	strcpy(str, "Split this string at every space");
+	dest = ft_split(str, ' ');
+	i = 0;
+	while (dest[i])
+	{
+		puts(dest[i]);
+		free(dest[i]);
+		i++;
+	}
+	free(dest);
+	return (0);
+}
+*/
+
+// ft_itoa
+int		main(void)
+{
+	int		nb;
+	char	*res;
+
+	nb = -149925;
+	res = ft_itoa(nb);
+	if (res)
+	{
+		puts(res);
+		printf("ft_strlen(res): %ld\n", ft_strlen(res));
+		free(res);
+	}
+	else
+		printf("malloc failed!\n");
+	return (0);
+}

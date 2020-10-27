@@ -6,14 +6,16 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/15 18:46:07 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/26 19:36:45 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/27 14:34:49 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
+#include "libft.h"
+
+size_t		ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	int				last_char_reached;
-	unsigned int	i;
+	int		last_char_reached;
+	size_t	i;
 
 	if (size > 0)
 	{
@@ -27,9 +29,7 @@ unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 				dest[i] = '\0';
 			}
 			else
-			{
 				dest[i] = src[i];
-			}
 			i++;
 		}
 		dest[size - 1] = '\0';

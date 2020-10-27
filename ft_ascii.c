@@ -6,9 +6,11 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 20:32:48 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/26 20:58:52 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/27 14:16:59 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int		ft_isalpha(int c)
 {

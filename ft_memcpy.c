@@ -6,11 +6,13 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 16:06:53 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/26 16:23:30 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/27 14:19:23 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+#include "libft.h"
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	char		*dest_cpy;
 	const char	*src_cpy;

@@ -6,11 +6,13 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 13:37:33 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/26 20:21:21 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/27 14:20:14 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strncmp(const char *s1, const char *s2, unsigned int n)
+#include "libft.h"
+
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int i;
 

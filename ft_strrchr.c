@@ -6,22 +6,22 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 20:02:34 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/26 20:08:15 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/27 14:49:29 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strrchr(const char *s, int c)
 {
-	int		i;
+	size_t		i;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
+	i = ft_strlen(s);
 	while (i >= 0)
 	{
 		if (s[i] == c)
 			return ((char *)&s[i]);
 		i--;
 	}
-	return (0);
+	return (NULL);
 }

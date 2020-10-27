@@ -6,13 +6,15 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 17:14:02 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/26 17:22:24 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/27 14:23:16 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dest, const void *src, unsigned int n)
+#include "libft.h"
+
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned int	i;
+	size_t			i;
 	char			temp[n];
 	const char		*src_cpy;
 	char			*dest_cpy;

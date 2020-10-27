@@ -6,9 +6,11 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 19:47:41 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/26 19:56:58 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/27 14:48:07 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -18,5 +20,5 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)s);
 		s++;
 	}
-	return (0);
+	return (NULL);
 }

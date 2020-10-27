@@ -6,11 +6,13 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 16:00:31 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/26 16:22:39 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/27 14:18:23 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, unsigned int n)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
 	while (n > 0)
 	{
