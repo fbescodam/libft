@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 20:10:12 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/27 14:49:04 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/28 16:22:22 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 char	*ft_strnstr(const char *str, const char *sub, size_t len)
 {
-	unsigned int	found_len;
-	unsigned int	to_find_len;
-	unsigned int	i;
+	size_t	found_len;
+	size_t	to_find_len;
+	size_t	i;
 
-	to_find_len = 0;
-	while (sub[to_find_len] != '\0')
-		to_find_len++;
+	to_find_len = ft_strlen(sub);
 	if (to_find_len == 0)
 		return ((char *)str);
 	found_len = 0;
