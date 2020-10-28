@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlcpy.c                                       :+:    :+:            */
+/*   ft_put_fd.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/08/15 18:46:07 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/28 13:16:23 by fbes          ########   odam.nl         */
+/*   Created: 2020/10/28 13:28:30 by fbes          #+#    #+#                 */
+/*   Updated: 2020/10/28 13:37:50 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcpy(char *dest, const char *src, size_t size)
+void	ft_putchar_fd(char c, int fd)
 {
-	int		last_char_reached;
-	size_t	i;
+	write(fd, &c, 1);
+}
 
-	if (size > 0)
+void	ft_putstr_fd(char *s, int fd)
+{
+	while (*s != '\0')
 	{
-		last_char_reached = 0;
-		i = 0;
-		while (i < size - 1)
-		{
-			if (last_char_reached > 0 || src[i] == '\0')
-			{
-				last_char_reached = 1;
-				dest[i] = '\0';
-			}
-			else
-				dest[i] = src[i];
-			i++;
-		}
-		dest[size - 1] = '\0';
+		ft_putchar_fd(*s, fd);
+		s++;
 	}
-	else
-		dest[0] = '\0';
-	return (ft_strlen(src));
+}
+
+void	ft_putendl_fd(char *s, int fd)
+{
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
+}
+
+void	ft_putnbr(int n, int fd)
+{
+	ft_putstr_fd(ft_itoa(n), fd);
 }

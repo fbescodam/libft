@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 16:32:18 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/27 17:02:44 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/28 12:55:53 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,11 @@ static int	ft_idigits(int n)
 	return (digits);
 }
 
-char	*ft_itoa(int n)
+static char	*ft_itoad(unsigned int n, int neg, int digits)
 {
 	char	*res;
 	int		i;
-	int		digits;
-	int		neg;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	if (n == 0)
-		return (ft_strdup("0"));
-	digits = ft_idigits(n);
-	neg = 0;
-	if (n < 0)
-	{
-		digits++;
-		n *= -1;
-		neg = 1;
-	}
 	res = (char *)malloc((digits + 1) * sizeof(char));
 	if (res)
 	{
@@ -63,4 +49,24 @@ char	*ft_itoa(int n)
 			res[i] = '-';
 	}
 	return (res);
+}
+
+char		*ft_itoa(int n)
+{
+	int		digits;
+	int		neg;
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
+	digits = ft_idigits(n);
+	neg = 0;
+	if (n < 0)
+	{
+		digits++;
+		n *= -1;
+		neg = 1;
+	}
+	return (ft_itoad(n, neg, digits));
 }

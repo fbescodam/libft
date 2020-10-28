@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/02 14:55:07 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/27 16:31:23 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/28 15:06:51 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,16 @@ static size_t	ft_sep_amount(char const *s, char const *set)
 	return (sep_amount);
 }
 
-void	ft_split_inner(char const *s, char const *set, size_t i[4], char **res)
-{
-	size_t	s_len;
+/*
+** ft_ssi is the function which gets run in the inner loop of ft_splitset below
+** in order to keep the code norminette compliant
+*/
 
-	s_len = ft_strlen(s) - 1;
-	if (i[0] == s_len && !ft_c_is_sep(set, s[i[0]]))
+static void		ft_ssi(char const *s, char const *set, size_t i[4], char **res)
+{
+	if (s[i[0] + 1] == '\0' && !ft_c_is_sep(set, s[i[0]]))
 		i[2]++;
-	if ((ft_c_is_sep(set, s[i[0]]) || i[0] == s_len) && i[2] > 0)
+	if ((ft_c_is_sep(set, s[i[0]]) || s[i[0] + 1] == '\0') && i[2] > 0)
 	{
 		res[i[1]] = ft_substr(s, i[3], i[2]);
 		i[2] = 0;
@@ -63,7 +65,7 @@ void	ft_split_inner(char const *s, char const *set, size_t i[4], char **res)
 	i[0]++;
 }
 
-char	**ft_splitset(char const *s, char const *set)
+char			**ft_splitset(char const *s, char const *set)
 {
 	char	**res;
 	size_t	i[4];
@@ -75,8 +77,9 @@ char	**ft_splitset(char const *s, char const *set)
 		i[1] = 0;
 		i[2] = 0;
 		i[3] = 0;
-		while (s[i[0]] != '\0')
-			ft_split_inner(s, set, i, res);
+		if (ft_strlen(s) > 0)
+			while (s[i[0]] != '\0')
+				ft_ssi(s, set, i, res);
 		res[i[1]] = 0;
 	}
 	return (res);

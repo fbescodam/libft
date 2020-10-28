@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:58:23 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/27 16:59:15 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/28 15:34:28 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include <ctype.h>
 
 // ft_memset
-/*
 int		main(void)
 {
 	char str[50];
@@ -32,7 +31,6 @@ int		main(void)
 
 	return (0);
 }
-*/
 
 // ft_bzero
 /*
@@ -164,7 +162,6 @@ int		main(void)
 */
 
 // ft_strlcpy
-// TODO: COULD NOT TEST REQUESTED BEHAVIOR ON LINUX, AS STRLCPY IS NOT INCLUDED IN C THERE!
 /*
 int		main(void)
 {
@@ -175,7 +172,7 @@ int		main(void)
 	strcpy(dest, "This string should get overwritten by the previous one");
 	puts(str);
 	puts(dest);
-	// printf("strlcpy returned: %ld\n", strlcpy(dest, str, 13));
+	//printf("strlcpy returned: %ld\n", strlcpy(dest, str, 13));
 	printf("ft_strlcpy returned: %ld\n", ft_strlcpy(dest, str, 13));
 	puts(str);
 	puts(dest);
@@ -184,8 +181,9 @@ int		main(void)
 }
 */
 
-// ft_strlcpy
-// TODO: COULD NOT TEST REQUESTED BEHAVIOR ON LINUX, AS STRLCAT IS NOT INCLUDED IN C THERE!
+// ft_strlcat
+// strlcat fails when size is bigger than the dest string can hold, ft_strlcat does not
+// can be fixed by using ft_memcpy?
 /*
 int		main(void)
 {
@@ -196,8 +194,8 @@ int		main(void)
 	strcpy(dest, "abcdef");
 	puts(str);
 	puts(dest);
-	// printf("strlcpy returned: %ld\n", strlcat(dest, str, 100));
-	printf("ft_strlcpy returned: %ld\n", ft_strlcat(dest, str, 100));
+	//printf("strlcat returned: %ld\n", strlcat(dest, str, 8));
+	printf("ft_strlcat returned: %ld\n", ft_strlcat(dest, str, 8));
 	puts(dest);
 
 	return (0);
@@ -237,7 +235,6 @@ int		main(void)
 */
 
 // ft_strnstr
-// TODO: COULD NOT TEST REQUESTED BEHAVIOR ON LINUX, AS STRNSTR IS NOT INCLUDED IN C THERE!
 /*
 int		main(void)
 {
@@ -248,7 +245,7 @@ int		main(void)
 	strcpy(search, "ABCDEF");
 	puts(str);
 	puts(search);
-	// printf("strnstr: %p\n", strnstr(str, search, 50));
+	printf("strnstr: %p\n", strnstr(str, search, 50));
 	printf("ft_strnstr: %p\n", ft_strnstr(str, search, 50));
 
 	return (0);
@@ -424,51 +421,54 @@ int		main(void)
 }
 */
 
-// ft_splitset
+// ft_split ft_splitset
 /*
 int		main(void)
 {
 	char	str[124];
+	char	**test;
 	char	**dest;
 	size_t	i;
 
-	strcpy(str, "Split this string at every space and s character");
-	dest = ft_splitset(str, " s");
-	i = 0;
-	while (dest[i])
-	{
-		puts(dest[i]);
-		free(dest[i]);
-		i++;
-	}
-	free(dest);
-	return (0);
-}
-*/
-
-// ft_split
-/*
-int		main(void)
-{
-	char	str[124];
-	char	**dest;
-	size_t	i;
-
-	strcpy(str, "Split this string at every space");
+	strcpy(str, "    aqwerty   n@$@@  baaaaa  ");
+	test = ft_splitset(str, " ");
 	dest = ft_split(str, ' ');
-	i = 0;
-	while (dest[i])
+
+	if (test)
 	{
-		puts(dest[i]);
-		free(dest[i]);
-		i++;
+		i = 0;
+		while (test[i])
+		{
+			printf("test[%ld]: ", i);
+			puts(test[i]);
+			free(test[i]);
+			i++;
+		}
+		free(test);
 	}
-	free(dest);
+	else
+		printf("malloc failed!\n");
+
+	if (dest)
+	{
+		i = 0;
+		while (dest[i])
+		{
+			printf("dest[%ld]: ", i);
+			puts(dest[i]);
+			free(dest[i]);
+			i++;
+		}
+		free(dest);
+	}
+	else
+		printf("malloc failed!\n");
 	return (0);
 }
 */
 
 // ft_itoa
+/*
 int		main(void)
 {
 	int		nb;
@@ -486,3 +486,45 @@ int		main(void)
 		printf("malloc failed!\n");
 	return (0);
 }
+*/
+
+// ft_strmapi
+/*
+char	strmapi_helper_uppercase(unsigned int i, char c)
+{
+	return (ft_toupper(c));
+}
+
+int		main(void)
+{
+	char test[100];
+	char *dest;
+
+	strcpy(test, "All characters in this string should turn into uppercase!");
+	puts(test);
+	dest = ft_strmapi(test, &strmapi_helper_uppercase);
+	if (dest)
+	{
+		puts(dest);
+		free(dest);
+	}
+	else
+		printf("malloc failed!\n");
+	return (0);
+}
+*/
+
+// ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd
+/*
+int		main(void)
+{
+	ft_putchar_fd('\n', 1);
+	ft_putchar_fd('@', 1);
+	ft_putstr_fd("1234567890", 1);
+	ft_putendl_fd("newlineplease", 1);
+	ft_putnbr(-2147483648, 1);
+	ft_putchar_fd('\n', 1);
+	ft_putchar_fd('\n', 1);
+	return (0);
+}
+*/

@@ -6,13 +6,14 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 14:35:23 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/27 16:51:38 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/28 15:14:27 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIBFT_H
 # define FT_LIBFT_H
 
+# include <unistd.h>
 # include <stdlib.h>
 
 void			*ft_memset(void *s, int c, size_t n);
@@ -46,5 +47,10 @@ char			*ft_strtrimstr(char const *s1, char const *s2);
 char			**ft_splitset(char const *s, char const *set);
 char			**ft_split(char const *s, char c);
 char			*ft_itoa(int n);
+char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void			ft_putchar_fd(char c, int fd);
+void			ft_putstr_fd(char *s, int fd);
+void			ft_putendl_fd(char *s, int fd);
+void			ft_putnbr(int n, int fd);
 
 #endif
