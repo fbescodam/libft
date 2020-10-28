@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:58:23 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/28 15:34:28 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/28 15:52:41 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <ctype.h>
 
 // ft_memset
+/*
 int		main(void)
 {
 	char str[50];
@@ -31,6 +32,7 @@ int		main(void)
 
 	return (0);
 }
+*/
 
 // ft_bzero
 /*
