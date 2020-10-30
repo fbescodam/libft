@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/28 13:18:29 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/28 13:23:57 by fbes          ########   odam.nl         */
+/*   Updated: 2020/10/30 14:18:24 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 			res[i] = (*f)(i, s[i]);
 			i++;
 		}
+		res[i] = '\0';
 	}
 	return (res);
 }
