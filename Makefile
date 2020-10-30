@@ -6,7 +6,7 @@
 #    By: fbes <fbes@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/10/26 14:25:38 by fbes          #+#    #+#                  #
-#    Updated: 2020/10/28 15:24:23 by fbes          ########   odam.nl          #
+#    Updated: 2020/10/30 16:26:22 by fbes          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ all: ${NAME}
 	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}
-	${AR} rc ${NAME} ${SRCS}
+	${AR} rc ${NAME} ${OBJS}
 
 test:
 	${CC} ${SRCS} -fsanitize=address -o test

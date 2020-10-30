@@ -1,0 +1,9 @@
+- memmove VLA weghalen
+- ft_putnbr mag geen ft_itoa gebruiken - daar wordt malloc in aangeroepen, wat niet mag (en niet wordt gefreed)
+- ft_split gebruik structs ipv size_t arrays voor de loops om het meer readable te maken
+- ft_split check of allocaten van inner strings goed gaat, indien niet return null op ft_split zelf en free alles in de array
+- ft_split check voor aantal separators (wordt te veel gealloceerd)
+- ft_strmapi null termination
+- ft_strnstr reset found_len wanneer het misschien onderdeel is van het volgende mogelijke resultaat ("ababat", finding "abat" werkt niet)
+- ft_substr alloceert teveel memory wanneer start groter is dan de lengte van de string (check in loop ook voor malloc)
+- Makefile ar command gebruikt .o files, niet .c files!!
