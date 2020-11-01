@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 18:42:02 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 17:06:29 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/01 17:09:09 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ void		ft_putnbr_fd(int n, int fd)
 	is_min_int_val = 0;
 	if (n == -2147483648)
 	{
-		is_min_int_val = 1;
-		digits[9] = -(n % 10) + '0';
-		n /= 10;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
 	if (n < 0)
 	{
