@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:58:23 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 17:52:41 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/01 17:55:15 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,6 +237,7 @@ int		main(void)
 */
 
 // ft_strnstr
+/*
 int		main(void)
 {
 	char str[64];
@@ -251,6 +252,7 @@ int		main(void)
 
 	return (0);
 }
+*/
 
 // ft_atoi
 /*

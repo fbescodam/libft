@@ -6,11 +6,9 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 15:17:14 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/27 14:17:03 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/01 17:56:15 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 static int	ft_is_whitespace(char c)
 {

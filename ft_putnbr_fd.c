@@ -6,11 +6,11 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 18:42:02 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 17:10:34 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/01 18:02:44 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 static void	write_nbr(char digits[10], int size, int fd)
 {
