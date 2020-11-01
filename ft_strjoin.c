@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 15:00:32 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 17:12:17 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/01 17:13:18 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*dest;
-	char	*ptr;
 	size_t	s1_len;
 	size_t	s2_len;
 
