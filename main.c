@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:58:23 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 17:23:03 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/01 17:52:41 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,14 +237,13 @@ int		main(void)
 */
 
 // ft_strnstr
-/*
 int		main(void)
 {
 	char str[64];
 	char search[64];
 
-	strcpy(str, "This is a testing ABCDEF string");
-	strcpy(search, "ABCDEF");
+	strcpy(str, "ababaababttabatt");
+	strcpy(search, "abat");
 	puts(str);
 	puts(search);
 	printf("strnstr: %p\n", strnstr(str, search, 50));
@@ -252,7 +251,6 @@ int		main(void)
 
 	return (0);
 }
-*/
 
 // ft_atoi
 /*
