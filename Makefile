@@ -6,15 +6,15 @@
 #    By: fbes <fbes@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/10/26 14:25:38 by fbes          #+#    #+#                  #
-#    Updated: 2020/10/30 16:26:22 by fbes          ########   odam.nl          #
+#    Updated: 2020/11/01 21:44:10 by fbes          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		libft.a
 
-SRCS =		${wildcard ./*.c}
+SRCS =		$(wildcard ./*.c)
 
-OBJS =		${SRCS:.c=.o}
+OBJS =		$(SRCS:.c=.o)
 
 CC =		gcc
 
@@ -24,23 +24,23 @@ CFLAGS =	-Wall -Wextra -Werror -Iincludes
 
 RM =		rm -f
 
-all: ${NAME}
+all: $(NAME)
 
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
-${NAME}: ${OBJS}
-	${AR} rc ${NAME} ${OBJS}
+$(NAME): $(OBJS)
+	$(AR) rc $(NAME) $(OBJS)
 
 test:
-	${CC} ${SRCS} -fsanitize=address -o test
+	$(CC) $(SRCS) -fsanitize=address -o test
 	./test
-	${RM} test
+	$(RM) test
 
 clean:
-	${RM} ${OBJS}
+	$(RM) $(OBJS)
 
 fclean: clean
-	${RM} ${NAME}
+	$(RM) $(NAME)
 
 re: fclean all
