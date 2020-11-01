@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/12 18:42:02 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 17:09:09 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/01 17:10:34 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ static void	write_nbr(char digits[10], int size, int fd)
 void		ft_putnbr_fd(int n, int fd)
 {
 	int		i;
-	int		is_min_int_val;
 	char	digits[10];
 
-	is_min_int_val = 0;
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
@@ -47,7 +45,7 @@ void		ft_putnbr_fd(int n, int fd)
 		n *= -1;
 		write(fd, "-", 1);
 	}
-	i = 9 - is_min_int_val;
+	i = 9;
 	while (i > -1)
 	{
 		digits[i] = (n % 10) + '0';
