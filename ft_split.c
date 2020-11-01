@@ -6,12 +6,11 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 15:41:13 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 21:08:07 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/01 21:53:39 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	ft_getsepsamount(char const *s, char c)
 {
@@ -26,10 +25,8 @@ static size_t	ft_getsepsamount(char const *s, char c)
 			amount++;
 		else if (i > 0 && s[i] != c && s[i + 1] == '\0')
 			amount++;
-		// printf("[AMOUN] i: %ld, s[i]: %c, amount: %ld\n", i, s[i], amount);
 		i++;
 	}
-	// printf("[AMOUN] i: %ld, amount: %ld\n", i, amount);
 	return (amount);
 }
 
@@ -56,10 +53,8 @@ static char		**ft_getpartsstart(char const *s, char c, size_t amount)
 				ret[j] = (char *)&s[i];
 				j++;
 			}
-			// printf("[START] i: %ld, s[i]: %c, j: %ld\n", i, s[i], j);
 			i++;
 		}
-		// printf("[START] i: %ld, j: %ld\n", i, j);
 	}
 	return (ret);
 }
@@ -87,10 +82,8 @@ static char		**ft_getpartsend(char const *s, char c, size_t amount)
 				ret[j] = (char *)&s[i + 1];
 				j++;
 			}
-			// printf("[ END ] i: %ld, s[i]: %c, j: %ld\n", i, s[i], j);
 			i++;
 		}
-		// printf("[ END ] i: %ld, j: %ld\n", i, j);
 	}
 	return (ret);
 }
@@ -125,7 +118,6 @@ char			**ft_split(char const *s, char c)
 	size_t	parts_amount;
 
 	parts_amount = ft_getsepsamount(s, c);
-	//printf("parts_amount: %ld\n", parts_amount);
 	arr = (char **)malloc((parts_amount + 1) * sizeof(char *));
 	if (arr)
 	{
