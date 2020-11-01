@@ -6,11 +6,12 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 15:41:13 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/28 15:12:23 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/01 21:08:07 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static size_t	ft_getsepsamount(char const *s, char c)
 {
@@ -21,52 +22,131 @@ static size_t	ft_getsepsamount(char const *s, char c)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
+		if (i > 0 && s[i] == c && s[i - 1] != c)
 			amount++;
+		else if (i > 0 && s[i] != c && s[i + 1] == '\0')
+			amount++;
+		// printf("[AMOUN] i: %ld, s[i]: %c, amount: %ld\n", i, s[i], amount);
 		i++;
 	}
+	// printf("[AMOUN] i: %ld, amount: %ld\n", i, amount);
 	return (amount);
 }
 
-/*
-** below function is called in the inner loop of ft_split
-** to make this code norminette compliant (fit in 25 lines per function)
-*/
-
-static void		ft_spi(char const *s, char c, size_t i[4], char **arr)
+static char		**ft_getpartsstart(char const *s, char c, size_t amount)
 {
-	if (s[i[0] + 1] == '\0' && s[i[0]] != c)
-		i[3] += 1;
-	if ((s[i[0]] == c || s[i[0] + 1] == '\0') && i[3] > 0)
+	size_t	i;
+	size_t	j;
+	char	**ret;
+
+	ret = (char **)malloc((amount + 1) * sizeof(char *));
+	if (ret)
 	{
-		arr[i[1]] = ft_substr(s, i[2], i[3]);
-		i[1]++;
-		i[2] = i[0] + 1;
-		i[3] = 0;
+		i = 0;
+		j = 0;
+		while (s[i] != '\0')
+		{
+			if (i == 0 && s[i] != c)
+			{
+				ret[j] = (char *)&s[i];
+				j++;
+			}
+			else if (i > 0 && s[i] != c && s[i - 1] == c)
+			{
+				ret[j] = (char *)&s[i];
+				j++;
+			}
+			// printf("[START] i: %ld, s[i]: %c, j: %ld\n", i, s[i], j);
+			i++;
+		}
+		// printf("[START] i: %ld, j: %ld\n", i, j);
 	}
-	else if (s[i[0]] != c)
-		i[3]++;
-	else
-		i[2] = i[0] + 1;
-	i[0]++;
+	return (ret);
+}
+
+static char		**ft_getpartsend(char const *s, char c, size_t amount)
+{
+	size_t	i;
+	size_t	j;
+	char	**ret;
+
+	ret = (char **)malloc((amount + 1) * sizeof(char *));
+	if (ret)
+	{
+		i = 0;
+		j = 0;
+		while (s[i] != '\0')
+		{
+			if (i > 0 && s[i] == c && s[i - 1] != c)
+			{
+				ret[j] = (char *)&s[i];
+				j++;
+			}
+			else if (i > 0 && s[i] != c && s[i + 1] == '\0')
+			{
+				ret[j] = (char *)&s[i + 1];
+				j++;
+			}
+			// printf("[ END ] i: %ld, s[i]: %c, j: %ld\n", i, s[i], j);
+			i++;
+		}
+		// printf("[ END ] i: %ld, j: %ld\n", i, j);
+	}
+	return (ret);
+}
+
+char			**ft_split_failed(char **arr, char **parts_start, char **parts_end, size_t amount)
+{
+	size_t	i;
+
+	if (arr)
+	{
+		i = 0;
+		while (i < amount)
+		{
+			free(arr[i]);
+			i++;
+		}
+		free(arr);
+	}
+	if (parts_start)
+		free(parts_start);
+	if (parts_end)
+		free(parts_end);
+	return (NULL);
 }
 
 char			**ft_split(char const *s, char c)
 {
 	char	**arr;
-	size_t	i[4];
+	char	**parts_start;
+	char	**parts_end;
+	size_t	i;
+	size_t	parts_amount;
 
-	arr = (char **)malloc(sizeof(char *) * ft_getsepsamount(s, c) + 1);
+	parts_amount = ft_getsepsamount(s, c);
+	//printf("parts_amount: %ld\n", parts_amount);
+	arr = (char **)malloc((parts_amount + 1) * sizeof(char *));
 	if (arr)
 	{
-		i[0] = 0;
-		i[1] = 0;
-		i[2] = 0;
-		i[3] = 0;
-		if (ft_strlen(s) > 0)
-			while (s[i[0]] != '\0')
-				ft_spi(s, c, i, arr);
-		arr[i[1]] = 0;
+		parts_start = ft_getpartsstart(s, c, parts_amount);
+		parts_end = ft_getpartsend(s, c, parts_amount);
+		if (parts_start && parts_end)
+		{
+			i = 0;
+			while (i < parts_amount)
+			{
+				arr[i] = ft_substr(s, parts_start[i] - s, parts_end[i] - parts_start[i]);
+				if (!arr[i])
+					return (ft_split_failed(arr, parts_start, parts_end, parts_amount));
+				i++;
+			}
+			free(parts_start);
+			free(parts_end);
+		}
+		else
+			return (ft_split_failed(arr, parts_start, parts_end, parts_amount));
+		arr[i] = 0;
 	}
 	return (arr);
 }

@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:58:23 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 17:55:15 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/01 21:45:24 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -258,7 +258,7 @@ int		main(void)
 /*
 int		main(void)
 {
-	char test[] = " 	--2147483645";
+	char test[] = "21474836503535555555";
 	printf("atoi: %d\n", atoi(test));
 	printf("ft_atoi: %d\n", ft_atoi(test));
 	return (0);
@@ -424,41 +424,23 @@ int		main(void)
 }
 */
 
-// ft_split ft_splitset
+// ft_split
 /*
 int		main(void)
 {
 	char	str[124];
-	char	**test;
 	char	**dest;
 	size_t	i;
 
-	strcpy(str, "    aqwerty   n@$@@  baaaaa  ");
-	test = ft_splitset(str, " ");
+	strcpy(str, "     ABC    D     ");
 	dest = ft_split(str, ' ');
-
-	if (test)
-	{
-		i = 0;
-		while (test[i])
-		{
-			printf("test[%ld]: ", i);
-			puts(test[i]);
-			free(test[i]);
-			i++;
-		}
-		free(test);
-	}
-	else
-		printf("malloc failed!\n");
-
 	if (dest)
 	{
 		i = 0;
 		while (dest[i])
 		{
-			printf("dest[%ld]: ", i);
-			puts(dest[i]);
+			printf("dest[%ld]: %s\n", i, dest[i]);
+			printf("ft_strlen(dest[%ld]): %ld\n", i, ft_strlen(dest[i]));
 			free(dest[i]);
 			i++;
 		}
