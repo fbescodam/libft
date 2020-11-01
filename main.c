@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:58:23 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 17:12:41 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/01 17:23:03 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -351,6 +351,7 @@ int		main(void)
 	if (dest)
 	{
 		puts(dest);
+		printf("ft_strlen(dest): %ld\n", ft_strlen(dest));
 		free(dest);
 	}
 	else
