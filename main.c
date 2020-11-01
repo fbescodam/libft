@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:58:23 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/28 15:52:41 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/01 16:59:53 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ int		main(void)
 */
 
 // ft_memmove
-/*
 int		main(void)
 {
 	char str[64];
@@ -106,14 +105,13 @@ int		main(void)
 	puts(str);
 	puts(dest);
 
-	// memmove(dest, str, 20);
-	ft_memmove(dest, str, 20);
+	// memmove(dest, str, 24);
+	ft_memmove(dest, str, 24);
 	puts(str);
 	puts(dest);
 
 	return (0);
 }
-*/
 
 // ft_memchr
 /*
