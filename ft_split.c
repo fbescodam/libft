@@ -123,9 +123,9 @@ char			**ft_split(char const *s, char c)
 	{
 		parts_start = ft_getpartsstart(s, c, parts_amount);
 		parts_end = ft_getpartsend(s, c, parts_amount);
+		i = 0;
 		if (parts_start && parts_end)
 		{
-			i = 0;
 			while (i < parts_amount)
 			{
 				arr[i] = ft_substr(s, parts_start[i] - s, parts_end[i] - parts_start[i]);
