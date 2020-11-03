@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/03 17:14:57 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/03 17:19:58 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/03 19:30:37 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	new->next = lst[0];
+	if (*lst)
+		new->next = *lst;
 	*lst = new;
 }
