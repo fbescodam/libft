@@ -6,7 +6,7 @@
 #    By: fbes <fbes@student.codam.nl>                 +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/10/26 14:25:38 by fbes          #+#    #+#                  #
-#    Updated: 2020/11/03 16:30:27 by fbes          ########   odam.nl          #
+#    Updated: 2020/11/03 16:50:46 by fbes          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ $(NAME): $(OBJS)
 	$(AR) rc $(NAME) $(OBJS)
 
 test:
-	$(CC) $(SRCS) -fsanitize=address -o test
+	$(CC) main.c $(SRCS) -fsanitize=address -o test
 	./test
 	$(RM) test
 
