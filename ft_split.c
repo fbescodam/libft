@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 15:41:13 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 21:53:39 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/03 16:48:28 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static char		**ft_getpartsend(char const *s, char c, size_t amount)
 	return (ret);
 }
 
-char			**ft_split_failed(char **arr, char **parts_start, char **parts_end, size_t amount)
+char			**splitfree(char **arr, char **p_s, char **p_e, size_t amount)
 {
 	size_t	i;
 
@@ -97,48 +97,44 @@ char			**ft_split_failed(char **arr, char **parts_start, char **parts_end, size_
 		i = 0;
 		while (i < amount)
 		{
-			free(arr[i]);
+			if (arr[i])
+				free(arr[i]);
 			i++;
 		}
 		free(arr);
 	}
-	if (parts_start)
-		free(parts_start);
-	if (parts_end)
-		free(parts_end);
+	if (p_s)
+		free(p_s);
+	if (p_e)
+		free(p_e);
 	return (NULL);
 }
 
 char			**ft_split(char const *s, char c)
 {
 	char	**arr;
-	char	**parts_start;
-	char	**parts_end;
+	char	**p_start;
+	char	**p_end;
 	size_t	i;
-	size_t	parts_amount;
+	size_t	p_amount;
 
-	parts_amount = ft_getsepsamount(s, c);
-	arr = (char **)malloc((parts_amount + 1) * sizeof(char *));
-	if (arr)
+	p_amount = ft_getsepsamount(s, c);
+	arr = (char **)malloc((p_amount + 1) * sizeof(char *));
+	if (!arr)
+		return (NULL);
+	p_start = ft_getpartsstart(s, c, p_amount);
+	p_end = ft_getpartsend(s, c, p_amount);
+	i = 0;
+	if (!p_start || !p_end)
+		return (splitfree(arr, p_start, p_end, p_amount));
+	while (i < p_amount)
 	{
-		parts_start = ft_getpartsstart(s, c, parts_amount);
-		parts_end = ft_getpartsend(s, c, parts_amount);
-		i = 0;
-		if (parts_start && parts_end)
-		{
-			while (i < parts_amount)
-			{
-				arr[i] = ft_substr(s, parts_start[i] - s, parts_end[i] - parts_start[i]);
-				if (!arr[i])
-					return (ft_split_failed(arr, parts_start, parts_end, parts_amount));
-				i++;
-			}
-			free(parts_start);
-			free(parts_end);
-		}
-		else
-			return (ft_split_failed(arr, parts_start, parts_end, parts_amount));
-		arr[i] = 0;
+		arr[i] = ft_substr(s, p_start[i] - s, p_end[i] - p_start[i]);
+		if (!arr[i])
+			return (splitfree(arr, p_start, p_end, p_amount));
+		i++;
 	}
+	splitfree(NULL, p_start, p_end, p_amount);
+	arr[i] = 0;
 	return (arr);
 }
