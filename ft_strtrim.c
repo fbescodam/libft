@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 15:10:24 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/28 15:56:54 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/03 14:28:50 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 			break ;
 	}
 	dest_len = s1_len - (size_t)start;
-	while (s1_len >= 0)
+	while (s1_len > 0)
 	{
 		if (ft_strchr(set, (int)s1[s1_len]))
 			dest_len--;
