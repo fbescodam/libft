@@ -88,7 +88,7 @@ static char		**ft_getpartsend(char const *s, char c, size_t amount)
 	return (ret);
 }
 
-char			**splitfree(char **arr, char **p_s, char **p_e, size_t amount)
+static char		**splitfree(char **arr, char **p_s, char **p_e, size_t amount)
 {
 	size_t	i;
 
