@@ -1,0 +1,5 @@
+- lstclear check of **lst == NULL
+- ft_split check of huidig char géén delimiter is ipv wel, scheelt lijnen
+- ft_split werkt niet met "a", 'b'
+- ft_lstmap new_list = ft_lstnew ipv new_elem
+- ft_putstr_fd kan met 1 write call
