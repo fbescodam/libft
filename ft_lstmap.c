@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/03 17:42:36 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/03 19:11:19 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/07 16:32:06 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_list;
 	t_list	*new_elem;
 
-	new_elem = ft_lstnew((*f)(lst->content));
-	if (!new_elem)
+	new_list = ft_lstnew((*f)(lst->content));
+	if (!new_list)
 		return (NULL);
-	new_list = new_elem;
 	lst = lst->next;
 	while (lst)
 	{
