@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/01 21:51:06 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 21:51:41 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/07 16:29:12 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	while (*s != '\0')
-	{
-		ft_putchar_fd(*s, fd);
-		s++;
-	}
+	write(fd, s, ft_strlen(s));
 }
