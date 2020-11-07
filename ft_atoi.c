@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 15:17:14 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/03 15:13:48 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/07 16:25:31 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ int			ft_atoi(const char *str)
 			num = 0;
 		else if (str[i] >= '0' && str[i] <= '9')
 			num = num * 10 + ((int)str[i] - 48);
-		else if (str[i] == '-' && signs == 0)
+		else if (str[i] == '-' && signs == 0 && num == 0)
 			signs += 1;
-		else if (str[i] == '+' && signs == 0)
+		else if (str[i] == '+' && signs == 0 && num == 0)
 			signs += 2;
 		else
 			break ;
