@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:58:23 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/04 15:55:45 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/07 16:38:19 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int		main(void)
 	puts(str);
 	puts(dest);
 
-	// memcpy(dest, str, 24);
-	ft_memcpy(dest, str, 24);
+	memcpy(NULL, NULL, 24);
+	//ft_memcpy(dest, str, 24);
 	puts(str);
 	puts(dest);
 
@@ -258,7 +258,7 @@ int		main(void)
 /*
 int		main(void)
 {
-	char test[] = "21474836503535555555";
+	char test[] = "12-23";
 	printf("atoi: %d\n", atoi(test));
 	printf("ft_atoi: %d\n", ft_atoi(test));
 	return (0);
@@ -425,15 +425,14 @@ int		main(void)
 */
 
 // ft_split
-/*
 int		main(void)
 {
 	char	str[124];
 	char	**dest;
 	size_t	i;
 
-	strcpy(str, "     ABC    D     ");
-	dest = ft_split(str, ' ');
+	strcpy(str, "A");
+	dest = ft_split("   a", ' ');
 	if (dest)
 	{
 		i = 0;
@@ -450,7 +449,6 @@ int		main(void)
 		printf("malloc failed!\n");
 	return (0);
 }
-*/
 
 // ft_itoa
 /*
