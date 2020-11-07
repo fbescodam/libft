@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 15:41:13 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/03 16:48:28 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/07 16:36:50 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static size_t	ft_getsepsamount(char const *s, char c)
 	{
 		if (i > 0 && s[i] == c && s[i - 1] != c)
 			amount++;
-		else if (i > 0 && s[i] != c && s[i + 1] == '\0')
+		else if (s[i] != c && s[i + 1] == '\0')
 			amount++;
 		i++;
 	}
