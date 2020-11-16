@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/03 17:42:36 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/07 16:32:06 by fbes          ########   odam.nl         */
+/*   Updated: 2020/11/16 14:26:41 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			ft_lstclear(&new_list, del);
 			return (NULL);
 		}
-		ft_lstadd_front(&new_list, new_elem);
+		ft_lstadd_back(&new_list, new_elem);
 		lst = lst->next;
 	}
 	return (new_list);
