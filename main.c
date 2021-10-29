@@ -6,7 +6,7 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 15:58:23 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/07 16:38:19 by fbes          ########   odam.nl         */
+/*   Updated: 2021/10/29 20:58:32 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,22 +237,23 @@ int		main(void)
 */
 
 // ft_strnstr
-/*
 int		main(void)
 {
-	char str[64];
-	char search[64];
+	char str[64] = "ababaababttabatt";
+	char search[64] = "abat";
+	char *org_res = NULL;
+	char *ft_res = NULL;
 
-	strcpy(str, "ababaababttabatt");
-	strcpy(search, "abat");
-	puts(str);
-	puts(search);
-	printf("strnstr: %p\n", strnstr(str, search, 50));
-	printf("ft_strnstr: %p\n", ft_strnstr(str, search, 50));
+	printf("str:        \"%s\"\n", str);
+	printf("search for: \"%s\"\n", search);
+	org_res = strnstr(str, search, 50);
+	ft_res = ft_strnstr(str, search, 50);
+	printf("RESULTS:\n");
+	printf("strnstr:    %p (%s)\n", org_res, org_res);
+	printf("ft_strnstr: %p (%s)\n", ft_res, ft_res);
 
 	return (0);
 }
-*/
 
 // ft_atoi
 /*
@@ -425,6 +426,7 @@ int		main(void)
 */
 
 // ft_split
+/*
 int		main(void)
 {
 	char	str[124];
@@ -449,6 +451,7 @@ int		main(void)
 		printf("malloc failed!\n");
 	return (0);
 }
+*/
 
 // ft_itoa
 /*
