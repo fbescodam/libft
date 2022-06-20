@@ -6,13 +6,21 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 13:37:33 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/03 16:22:17 by fbes          ########   odam.nl         */
+/*   Updated: 2022/02/08 19:48:05 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+/**
+ * Compare two strings but not more than a certain amount of characters
+ * @param[in] *s1		A string to compare
+ * @param[in] *s2		Another string to compare
+ * @size_t n		The maximum amount of characters to compare
+ * @return			The difference between the two characters found at any
+ * 					difference (0 if both strings are equal)
+ */
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 

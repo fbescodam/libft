@@ -6,13 +6,19 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/03 17:05:37 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/03 17:14:21 by fbes          ########   odam.nl         */
+/*   Updated: 2022/02/08 19:48:05 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-t_list		*ft_lstnew(void *content)
+/**
+ * Create a new linked list element with content
+ * @param[in] *content		A pointer to the content to add to the element
+ * @return				The created element, NULL on failure
+ */
+t_list	*ft_lstnew(void *content)
 {
 	t_list	*ret;
 

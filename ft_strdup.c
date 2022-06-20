@@ -6,18 +6,24 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/09/01 20:06:31 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/27 14:52:06 by fbes          ########   odam.nl         */
+/*   Updated: 2022/04/09 00:40:28 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
+/**
+ * Duplicate a string in newly allocated memory
+ * @param[in] *src		The source to copy from
+ * @return			A pointer to the copy, NULL on error
+ */
 char	*ft_strdup(const char *src)
 {
 	char	*dest;
 	size_t	i;
 
-	dest = (char *)malloc(ft_strlen(src) + 1);
+	dest = ft_stralloc(ft_strlen(src));
 	if (dest)
 	{
 		i = 0;
@@ -26,7 +32,6 @@ char	*ft_strdup(const char *src)
 			dest[i] = src[i];
 			i++;
 		}
-		dest[i] = '\0';
 	}
 	return (dest);
 }

@@ -6,14 +6,24 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/01 21:51:22 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 21:51:38 by fbes          ########   odam.nl         */
+/*   Updated: 2022/02/08 19:48:05 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+/**
+ * Write a string to a file descriptor and end with a newline
+ * @param[in] *s	The string to write
+ * @param[in] fd	The file descriptor to write to
+ * @return		The amount of characters written, or -1 on error
+ */
+int	ft_putendl_fd(char *s, int fd)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	int	written_chars;
+
+	written_chars = ft_putstr_fd(s, fd);
+	written_chars += ft_putchar_fd('\n', fd);
+	return (written_chars);
 }

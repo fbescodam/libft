@@ -6,38 +6,21 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 16:32:18 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/28 12:55:53 by fbes          ########   odam.nl         */
+/*   Updated: 2022/04/09 00:39:55 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
-
-static int	ft_idigits(int n)
-{
-	int	digits;
-
-	if (n == -2147483648)
-		return (10);
-	if (n < 0)
-		n *= -1;
-	digits = 0;
-	while (n > 0)
-	{
-		n /= 10;
-		digits += 1;
-	}
-	return (digits);
-}
 
 static char	*ft_itoad(unsigned int n, int neg, int digits)
 {
 	char	*res;
 	int		i;
 
-	res = (char *)malloc((digits + 1) * sizeof(char));
+	res = ft_stralloc(digits);
 	if (res)
 	{
-		res[digits] = '\0';
 		i = digits - 1;
 		while (n > 0)
 		{
@@ -51,7 +34,12 @@ static char	*ft_itoad(unsigned int n, int neg, int digits)
 	return (res);
 }
 
-char		*ft_itoa(int n)
+/**
+ * Convert a number of base10 into a string
+ * @param[in] n		The number to convert
+ * @return		The converted number in string format, NULL on error
+ */
+char	*ft_itoa(int n)
 {
 	int		digits;
 	int		neg;
@@ -60,7 +48,7 @@ char		*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	if (n == 0)
 		return (ft_strdup("0"));
-	digits = ft_idigits(n);
+	digits = ft_numlen((unsigned int)ft_abs(n), 10);
 	neg = 0;
 	if (n < 0)
 	{
@@ -68,5 +56,5 @@ char		*ft_itoa(int n)
 		n *= -1;
 		neg = 1;
 	}
-	return (ft_itoad(n, neg, digits));
+	return (ft_itoad((unsigned int)n, neg, digits));
 }

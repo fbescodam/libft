@@ -6,24 +6,11 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 15:17:14 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/07 16:25:31 by fbes          ########   odam.nl         */
+/*   Updated: 2022/02/08 19:48:05 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_is_whitespace(char c)
-{
-	if (
-		c == ' ' ||
-		c == '\f' ||
-		c == '\n' ||
-		c == '\r' ||
-		c == '\t' ||
-		c == '\v')
-	{
-		return (1);
-	}
-	return (0);
-}
+#include "libft.h"
 
 static int	ft_is_odd_or_even(int n)
 {
@@ -33,7 +20,12 @@ static int	ft_is_odd_or_even(int n)
 		return (-1);
 }
 
-int			ft_atoi(const char *str)
+/**
+ * Parse a number in a string to an integer
+ * @param[in] *str	The string to parse
+ * @return		The parsed number
+ */
+int	ft_atoi(const char *str)
 {
 	int		num;
 	int		i;
@@ -44,7 +36,7 @@ int			ft_atoi(const char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (ft_is_whitespace(str[i]) && num == 0 && signs == 0)
+		if (ft_iswhitespace(str[i]) && num == 0 && signs == 0)
 			num = 0;
 		else if (str[i] >= '0' && str[i] <= '9')
 			num = num * 10 + ((int)str[i] - 48);

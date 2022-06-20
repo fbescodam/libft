@@ -6,17 +6,26 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 19:47:41 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/27 14:48:07 by fbes          ########   odam.nl         */
+/*   Updated: 2022/02/08 19:48:05 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
+/**
+ * Search for a character in a string
+ * @param[in] *s	The string to search in
+ * @param[in] c		The character to look for
+ * @return		A pointer to the character in the string, NULL if not found
+ */
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != '\0' || c == '\0')
+	char	ch;
+
+	ch = (char)c;
+	while (*s != '\0' || ch == '\0')
 	{
-		if (*s == c)
+		if (*s == ch)
 			return ((char *)s);
 		s++;
 	}

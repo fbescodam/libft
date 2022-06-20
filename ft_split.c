@@ -6,10 +6,11 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 15:41:13 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/07 16:36:50 by fbes          ########   odam.nl         */
+/*   Updated: 2022/02/08 19:48:05 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
 static size_t	ft_getsepsamount(char const *s, char c)
@@ -30,7 +31,7 @@ static size_t	ft_getsepsamount(char const *s, char c)
 	return (amount);
 }
 
-static char		**ft_getpartsstart(char const *s, char c, size_t amount)
+static char	**ft_getpartsstart(char const *s, char c, size_t amount)
 {
 	size_t	i;
 	size_t	j;
@@ -59,7 +60,7 @@ static char		**ft_getpartsstart(char const *s, char c, size_t amount)
 	return (ret);
 }
 
-static char		**ft_getpartsend(char const *s, char c, size_t amount)
+static char	**ft_getpartsend(char const *s, char c, size_t amount)
 {
 	size_t	i;
 	size_t	j;
@@ -88,7 +89,7 @@ static char		**ft_getpartsend(char const *s, char c, size_t amount)
 	return (ret);
 }
 
-static char		**splitfree(char **arr, char **p_s, char **p_e, size_t amount)
+static char	**splitfree(char **arr, char **p_s, char **p_e, size_t amount)
 {
 	size_t	i;
 
@@ -110,7 +111,14 @@ static char		**splitfree(char **arr, char **p_s, char **p_e, size_t amount)
 	return (NULL);
 }
 
-char			**ft_split(char const *s, char c)
+/**
+ * Split a string on certain characters
+ * @param[in] *s	The string to split
+ * @param[in] c		The character to split the string at
+ * @return		An array of strings containing the split up string,
+ * 				NULL on error, array ends with NULL
+ */
+char	**ft_split(char const *s, char c)
 {
 	char	**arr;
 	char	**p_start;

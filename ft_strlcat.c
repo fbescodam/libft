@@ -6,13 +6,20 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/08/17 14:36:46 by fbes          #+#    #+#                 */
-/*   Updated: 2020/10/27 14:31:14 by fbes          ########   odam.nl         */
+/*   Updated: 2022/02/08 19:48:05 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcat(char *dest, const char *src, size_t size)
+/**
+ * Copy and concatenate a string
+ * @param[in] *dest		The place to copy to
+ * @param[in] *src		The place to copy from
+ * @param[in] size		The maximum amount of bytes to copy
+ * @return			The length of the string the method tried to create
+ */
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t		src_len;
 	size_t		dest_len;

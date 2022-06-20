@@ -6,13 +6,18 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/03 17:22:28 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/03 18:05:07 by fbes          ########   odam.nl         */
+/*   Updated: 2022/02/08 19:48:05 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lstsize(t_list *lst)
+/**
+ * Get the size of a linked list
+ * @param[in] *lst		The linked list to get the size of
+ * @return			The size of the linked list
+ */
+int	ft_lstsize(t_list *lst)
 {
 	int	size;
 

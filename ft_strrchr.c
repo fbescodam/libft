@@ -6,12 +6,18 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 20:02:34 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/03 16:33:58 by fbes          ########   odam.nl         */
+/*   Updated: 2022/02/08 19:48:05 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Search for a character in a string, starting from the back
+ * @param[in] *s	The string to search in
+ * @param[in] c		The character to look for
+ * @return		A pointer to the character in the string, NULL if not found
+ */
 char	*ft_strrchr(const char *s, int c)
 {
 	size_t		i;

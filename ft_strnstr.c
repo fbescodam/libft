@@ -6,12 +6,19 @@
 /*   By: fbes <fbes@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/26 20:10:12 by fbes          #+#    #+#                 */
-/*   Updated: 2020/11/01 17:54:31 by fbes          ########   odam.nl         */
+/*   Updated: 2022/02/08 21:51:40 by fbes          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Search for a string in a string
+ * @param[in] *str		The string to search in
+ * @param[in] *sub		The string to find
+ * @param[in] len		The amount of characters to stop searching after
+ * @return				A pointer to the string found, or NULL if not found
+ */
 char	*ft_strnstr(const char *str, const char *sub, size_t len)
 {
 	size_t	found_len;
